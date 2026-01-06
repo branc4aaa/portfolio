@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-#-oqk&*_-u=1crw2*&@p%u_@+twc3mploo!3r7=m25w&kxris*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "https://portfolio-rcfh.onrender.com/",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
