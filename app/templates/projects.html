@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block title %}Projects{% endblock title %}
+{% block content %}
+{% for p in projects %}
+<div class='card'>
+    <ul>
+        <li>Nombre:{{p.name}}</li>
+        <li>Url:{{p.tag}}</li>
+        <a href='{{p.urltag}}' class="btn btn-primary">Ir al proyecto</a>
+        <a href={% url "about" p.id%} class="btn btn-primary">Ver más del proyecto</a>
+
+    </ul>
+</div>
+
+{% endfor %}
+{% endblock content %}
