@@ -1,6 +1,16 @@
 {% extends "home.html" %}
 {% block title %}Home{% endblock title %}
+{% block page_actions %}
+<a  class="navbar-brand" href="{% url 'more' %}">Mas</a>
+{% endblock page_actions %}
 {% block content %}
-<h2>portfolio de Ezequiel Brancatti</h2>
 
+<div>
+    <h1>Portfolio de Ezequiel Brancatti</h1>
+
+    <p>¡Bienvenido a mi portafolio! Aquí encontrarás una selección de mis proyectos.</p>
+    <p>Soy un desarrollador junior. Me especializo en desarrollo back-end y tengo experiencia en diversos lenguajes de programación.</p>
+    <p>Explora mis proyectos para ver ejemplos de mi trabajo y no dudes en contactarme si tienes alguna pregunta.</p>
+</div>
+<a href="{% url 'projects' %}" class="btn btn-primary">Ver Proyectos</a>
 {% endblock content %}

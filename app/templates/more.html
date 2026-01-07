@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block title %}Más Sobre Mí{% endblock title %}
+
+{% block content %}
+<div>
+    <h1>Más Sobre Mí</h1>
+
+    <p>Soy Ezequiel Brancatti, un desarrollador junior apasionado por la tecnología y el desarrollo de software. Me especializo en desarrollo back-end y tengo experiencia en diversos lenguajes de programación, incluyendo Python y JavaScript.</p>
+    <p>Me encanta aprender nuevas tecnologías y mejorar mis habilidades constantemente. En mi portafolio, encontrarás una selección de mis proyectos, que reflejan mi capacidad para resolver problemas y crear soluciones eficientes.</p>
+    <p>Además de mis habilidades técnicas, disfruto trabajar en equipo para alcanzar objetivos comunes. Estoy siempre abierto a nuevas oportunidades y desafíos que me permitan crecer profesionalmente.</p>
+    <p>Si deseas saber más sobre mí o discutir posibles colaboraciones, no dudes en contactarme. ¡Estoy emocionado por lo que el futuro me depara en el mundo del desarrollo de software!</p>
+    <p>Gracias por visitar mi portafolio.</p>
+</div>
+<a href="https://www.linkedin.com/in/ezequiel-brancatti-202b00221/" class="btn btn-primary">Ver CV</a>
+<a href="{% url 'home' %}" class="btn btn-primary">Volver al Inicio</a>
+{% endblock content %}

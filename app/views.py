@@ -15,4 +15,6 @@ def about_view(request, pid:int):
 
     return render(request, 'about.html', con)
 
+def more_view(request):
+    return render(request, 'more.html')
 
