@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#-oqk&*_-u=1crw2*&@p%u_@+twc3mploo!3r7=m25w&kxris*
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://portfolio-rcfh.onrender.com/",
+    "portfolio-rcfh.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
