@@ -18,3 +18,6 @@ def about_view(request, pid:int):
 def more_view(request):
     return render(request, 'more.html')
 
+def contact_view(request):
+    return render(request, 'contact.html')
+
