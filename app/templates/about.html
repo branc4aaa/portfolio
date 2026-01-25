@@ -1,11 +1,25 @@
 {% extends "home.html" %}
 {% block title %}About{% endblock title %}
 {% block content %}
-<div>
-    <h2>{{name}}</h2>
-    <h3>{{tag}}</h3>
-    <p>{{info}}</p>
-    <a href={{urltag}}>ir al repo</a>
-</div>
+<h2>{{ project.name }}</h2>
 
+<p>{{ project.info }}</p>
+
+{% if project.image %}
+    <img src="{{ project.image.url }}" width="300">
+{% endif %}
+
+<hr>
+
+<h4>Galería</h4>
+
+<div class="gallery">
+
+    {% for img in images %}
+        <img src="{{ img.image.url }}" width="200">
+    {% empty %}
+        <p>No hay imágenes cargadas</p>
+    {% endfor %}
+
+</div>
 {% endblock content %}

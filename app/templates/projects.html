@@ -2,15 +2,21 @@
 {% block title %}Projects{% endblock title %}
 {% block content %}
 <div class="container mt-5">
-    <h1 class="mb-4">My Projects</h1>
+    <h1 class="mb-4">Mis Proyectos</h1>
     <div class="row">
         {% for p in projects %}
             <div class='card'>
                 <ul>
                     <li>Nombre:{{p.name}}</li>
                     <li>Tag:{{p.tag}}</li>
+
+                    {% if p.image %}
+                        <a href="{{ p.image.url }}" target="_blank" class="btn btn-primary">
+                            Ver imagen
+                        </a>
+                    {% endif %}
                     <a href='{{p.urltag}}' class="btn btn-primary">Ir al proyecto</a>
-                    <a href={% url "about" p.id%} class="btn btn-primary">Ver más del proyecto</a>
+                    <a href='{% url "about" p.id%}' class="btn btn-primary">Ver más del proyecto</a>
 
                 </ul>
             </div>
