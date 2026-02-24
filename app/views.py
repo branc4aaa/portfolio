@@ -1,14 +1,17 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Project, ProjectImage
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.core.mail import EmailMessage  
+from django.conf import settings
+from .models import Project
 from .forms import ContactForm
 
 # Create your views here.
 def home(request):
-    return render(request, 'home1.html')
+    return render(request, 'app/home1.html')
 
 def proj_view(request):
     proj = Project.objects.all()
-    return render(request, 'projects.html', {'projects': proj})
+    return render(request, 'app/projects.html', {'projects': proj})
 
 def about_view(request, pid: int):
     pro = get_object_or_404(Project, id=pid)
@@ -19,23 +22,35 @@ def about_view(request, pid: int):
         'images': images,
     }
 
-    return render(request, 'about.html', context)
+    return render(request, 'app/about.html', context)
 def more_view(request):
-    return render(request, 'more.html')
+    return render(request, 'app/more.html')
 
 def contact_view(request):
-
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, 'contact_success.html')
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            subject = f"Contacto portfolio: {name}"
+            body = f"Nombre: {name}\nEmail: {email}\n\nMensaje:\n{message}"
+
+            
+            mail = EmailMessage(
+                subject=subject,
+                body=body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.CONTACT_RECEIVER_EMAIL],
+                reply_to=[email],
+            )
+            mail.send()
+
+            return redirect("contact_success")
     else:
         form = ContactForm()
-    
-        return render(request, 'contact.html', {'form': form})
+    return render(request, "app/contact.html", {"form": form})
 
-    form = ContactForm()
-
-    return render(request, 'contact.html', {'form': form})
-
+def contact_success(request):
+    return render(request, "app/contact_success.html")

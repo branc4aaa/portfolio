@@ -13,9 +13,9 @@
     <body>
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url "home"%}">Home</a>
+                <a class="navbar-brand" href="{% url 'home'%}">Home</a>
                 {% block page_actions %}{% endblock %}
-                <a class="navbar-brand" href="{% url "projects"%}">Proyectos</a>
+                <a class="navbar-brand" href="{% url 'projects'%}">Proyectos</a>
             </div>
         </nav>
         {% block content %}

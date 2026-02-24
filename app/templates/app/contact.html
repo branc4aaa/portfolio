@@ -1,4 +1,4 @@
-{% extends "home.html" %}
+{% extends "app/home.html" %}
 {% block title %}Contact{% endblock %}
 
 {% block content %}
@@ -11,5 +11,9 @@ Actualmente busco oportunidades como desarrollador de software donde pueda aplic
 
 </p>
 <p>Si tienes alguna pregunta o comentario, no dudes en contactarme a través de los siguientes metodos</p>
-
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+    
+</form>
 {% endblock %}
