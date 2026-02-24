@@ -23,6 +23,7 @@ def about_view(request, pid: int):
     }
 
     return render(request, 'app/about.html', context)
+
 def more_view(request):
     return render(request, 'app/more.html')
 
@@ -37,7 +38,6 @@ def contact_view(request):
             subject = f"Contacto portfolio: {name}"
             body = f"Nombre: {name}\nEmail: {email}\n\nMensaje:\n{message}"
 
-            
             mail = EmailMessage(
                 subject=subject,
                 body=body,
@@ -47,10 +47,10 @@ def contact_view(request):
             )
             mail.send()
 
-            return redirect("contact_success")
+            messages.success(request, "contacto enviado correctamente.")
+            form = ContactForm() 
+
     else:
         form = ContactForm()
-    return render(request, "app/contact.html", {"form": form})
 
-def contact_success(request):
-    return render(request, "app/contact_success.html")
+    return render(request, "app/contact.html", {"form": form})

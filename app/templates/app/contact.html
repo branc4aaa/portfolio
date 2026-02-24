@@ -2,6 +2,13 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+    <div style="padding:10px; background:#d4edda; color:#155724; border-radius:5px; margin-bottom:10px;">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endif %}
 <h1>Contactame</h1>
 <p>Soy una persona perseverante y comprometida, con formación en informática y un fuerte interés en el área de tecnología y desarrollo de software. Mi objetivo es continuar aprendiendo y adquirir experiencia profesional que me permita crecer dentro del sector IT.
 
