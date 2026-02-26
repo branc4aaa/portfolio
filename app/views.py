@@ -47,7 +47,7 @@ def contact_view(request):
             )
             mail.send()
 
-            messages.success(request, "contacto enviado correctamente.")
+            messages.success(request, "Contacto enviado correctamente.")
             form = ContactForm() 
 
     else:
